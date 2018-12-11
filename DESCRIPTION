@@ -1,0 +1,17 @@
+Package: jl12
+Title: Johnson-Laird's (2012) Tonal Dissonance Model
+Version: 0.0.0.9000
+Authors@R: person("Peter", "Harrison", email = "first.last@example.com", role = c("aut", "cre"))
+Description: This package implements Johnson-Laird's (2012) tonal dissonance model.
+Depends: R (>= 3.5.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat,
+    magrittr
+Imports: 
+    gtools,
+    Rdpack
+RdMacros: Rdpack
+RoxygenNote: 6.1.0
