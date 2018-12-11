@@ -12,38 +12,55 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# jl12
+# jl12: Johnson-Laird's (2012) Tonal Dissonance Model
 
-The goal of jl12 is to ...
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+
+The `jl12` R package implements Johnson-Laird's (2012) tonal dissonance model.
 
 ## Installation
 
-You can install the released version of jl12 from [CRAN](https://CRAN.R-project.org) with:
+Within R, you can install the current version of `jl12` from Github as follows:
 
 ``` r
-install.packages("jl12")
+if (!require(devtools)) install.packages("devtools")
+devtools::install_github("jl12")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+Higher scores correspond to greater dissonance. 
+These scores correspond to each of the distinguishable categories
+in the cultural component of Johnson-Laird et al.'s (2012) algorithm.
 
-```{r example}
-## basic example code
+Major chord:
+
+```{r}
+library(jl12)
+jl_tonal_dissonance(c(0, 4, 7))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+Minor chord:
 
-```{r cars}
-summary(cars)
+```{r}
+jl_tonal_dissonance(c(0, 3, 7))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+Cluster chord:
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r}
+jl_tonal_dissonance(c(0, 1, 2))
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+The model comprises several rules. 
+It is possible to call these rules individually, for example:
+
+```{r}
+jl_rule_1(c(0, 3, 7))
+jl_rule_2(c(0, 3, 7))
+jl_rule_3(c(0, 3, 7))
+```
+
+## References
+
+Johnson-Laird, P. N., Kang, O. E., & Leong, Y. C. (2012). On musical dissonance. Music Perception, 30(1), 19–35.

@@ -6,8 +6,15 @@
 \usage{
 jl_rule_3(pc_set)
 }
+\arguments{
+\item{pc_set}{(Numeric vector) Pitch-class set to analyse.}
+}
 \value{
 \code{FALSE} for consonant, \code{TRUE} for dissonant.
+If a consonant solution is found,
+the stacked-thirds version of the chord is returned
+as the attribute \code{"solution"},
+accessible with the command \code{attr(x, "solution")}.
 }
 \description{
 "Chords built from intervals of a third should be more consonant

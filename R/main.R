@@ -12,9 +12,11 @@ jl_tonal_dissonance <- function(pc_set) {
   stopifnot(is.numeric(pc_set),
             all(pc_set %in% 0:11),
             !anyDuplicated(pc_set))
-  jl_rule_1(pc_set) * 4L +
+  x <- jl_rule_1(pc_set) * 4L +
     jl_rule_2(pc_set) * 2L +
     jl_rule_3(pc_set) - 3L
+  attributes(x) <- NULL
+  x
 }
 
 #' Tonal Dissonance, Rule 1
@@ -66,7 +68,12 @@ jl_rule_2 <- function(pc_set) {
 #' "The principle allows for just one missing third intervening
 #' between two pitch classes a fifth apart"
 #' \insertCite{Johnson-Laird2012}{jl12}.
+#' @param pc_set (Numeric vector) Pitch-class set to analyse.
 #' @return \code{FALSE} for consonant, \code{TRUE} for dissonant.
+#' If a consonant solution is found,
+#' the stacked-thirds version of the chord is returned
+#' as the attribute \code{"solution"},
+#' accessible with the command \code{attr(x, "solution")}.
 #' @references
 #' \insertAllCited{}
 #' @export
