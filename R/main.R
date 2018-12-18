@@ -2,21 +2,37 @@
 #'
 #' Computes tonal dissonance using the algorithm
 #' of \insertCite{Johnson-Laird2012;textual}{jl12}.
-#' @param pc_set (Numeric vector) Pitch-class set to analyse.
+#' @param x Sonority to analyse.
+#' This will be coerced to an object of class \code{\link[hrep]{pc_set}}.
 #' @return Integer scalar identifying the chord's consonance rank,
 #' with higher values corresponding to increasing degrees of dissonance.
 #' @references
 #' \insertAllCited{}
+#' @rdname jl_tonal_dissonance
+#' @examples
+#' jl_tonal_dissonance(0, 4, 7)
+#' jl_tonal_dissonance(0, 3, 7)
+#' jl_tonal_dissonance(0, 3, 6)
 #' @export
-jl_tonal_dissonance <- function(pc_set) {
-  stopifnot(is.numeric(pc_set),
-            all(pc_set %in% 0:11),
-            !anyDuplicated(pc_set))
-  x <- jl_rule_1(pc_set) * 4L +
-    jl_rule_2(pc_set) * 2L +
-    jl_rule_3(pc_set) - 3L
-  attributes(x) <- NULL
-  x
+jl_tonal_dissonance <- function(x) {
+  UseMethod("jl_tonal_dissonance")
+}
+
+#' @rdname jl_tonal_dissonance
+#' @export
+jl_tonal_dissonance.default <- function(x) {
+  x <- hrep::pc_set(x)
+  jl_tonal_dissonance(x)
+}
+
+#' @rdname jl_tonal_dissonance
+#' @export
+jl_tonal_dissonance.pc_set <- function(x) {
+  y <- jl_rule_1(x) * 4L +
+    jl_rule_2(x) * 2L +
+    jl_rule_3(x) - 3L
+  attributes(y) <- NULL
+  y
 }
 
 #' Tonal Dissonance, Rule 1

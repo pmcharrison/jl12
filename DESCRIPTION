@@ -12,6 +12,9 @@ Suggests:
     magrittr
 Imports: 
     gtools,
-    Rdpack
+    Rdpack,
+    hrep
 RdMacros: Rdpack
 RoxygenNote: 6.1.0
+Remotes:
+    pmcharrison/hrep

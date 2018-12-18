@@ -2,12 +2,19 @@
 % Please edit documentation in R/main.R
 \name{jl_tonal_dissonance}
 \alias{jl_tonal_dissonance}
+\alias{jl_tonal_dissonance.default}
+\alias{jl_tonal_dissonance.pc_set}
 \title{Tonal dissonance}
 \usage{
-jl_tonal_dissonance(pc_set)
+jl_tonal_dissonance(x)
+
+\method{jl_tonal_dissonance}{default}(x)
+
+\method{jl_tonal_dissonance}{pc_set}(x)
 }
 \arguments{
-\item{pc_set}{(Numeric vector) Pitch-class set to analyse.}
+\item{x}{Sonority to analyse.
+This will be coerced to an object of class \code{\link[hrep]{pc_set}}.}
 }
 \value{
 Integer scalar identifying the chord's consonance rank,
@@ -16,6 +23,11 @@ with higher values corresponding to increasing degrees of dissonance.
 \description{
 Computes tonal dissonance using the algorithm
 of \insertCite{Johnson-Laird2012;textual}{jl12}.
+}
+\examples{
+jl_tonal_dissonance(0, 4, 7)
+jl_tonal_dissonance(0, 3, 7)
+jl_tonal_dissonance(0, 3, 6)
 }
 \references{
 \insertAllCited{}
