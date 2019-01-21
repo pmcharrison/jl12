@@ -10,9 +10,9 @@
 #' \insertAllCited{}
 #' @rdname jl_tonal_dissonance
 #' @examples
-#' jl_tonal_dissonance(0, 4, 7)
-#' jl_tonal_dissonance(0, 3, 7)
-#' jl_tonal_dissonance(0, 3, 6)
+#' jl_tonal_dissonance(c(0, 4, 7))
+#' jl_tonal_dissonance(c(0, 3, 7))
+#' jl_tonal_dissonance(c(0, 3, 6))
 #' @export
 jl_tonal_dissonance <- function(x) {
   UseMethod("jl_tonal_dissonance")

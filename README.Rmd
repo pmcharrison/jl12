@@ -14,7 +14,10 @@ knitr::opts_chunk$set(
 ```
 # jl12: Johnson-Laird's (2012) Tonal Dissonance Model
 
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Travis build status](https://travis-ci.org/pmcharrison/jl12.svg?branch=master)](https://travis-ci.org/pmcharrison/jl12)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/pmcharrison/jl12?branch=master&svg=true)](https://ci.appveyor.com/project/pmcharrison/jl12)
+[![Coverage status](https://coveralls.io/repos/github/pmcharrison/jl12/badge.svg)](https://coveralls.io/r/pmcharrison/jl12?branch=master)
 
 The `jl12` R package implements Johnson-Laird's (2012) tonal dissonance model.
 

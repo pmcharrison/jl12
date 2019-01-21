@@ -25,9 +25,9 @@ Computes tonal dissonance using the algorithm
 of \insertCite{Johnson-Laird2012;textual}{jl12}.
 }
 \examples{
-jl_tonal_dissonance(0, 4, 7)
-jl_tonal_dissonance(0, 3, 7)
-jl_tonal_dissonance(0, 3, 6)
+jl_tonal_dissonance(c(0, 4, 7))
+jl_tonal_dissonance(c(0, 3, 7))
+jl_tonal_dissonance(c(0, 3, 6))
 }
 \references{
 \insertAllCited{}
